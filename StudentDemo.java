@@ -1,8 +1,3 @@
-
-import com.sun.xml.internal.bind.v2.runtime.output.SAXOutput;
-import src.StudentDoesntExist;
-import src.StudentDoesntExit;
-
 import java.util.Scanner;
 public class StudentDemo {
     public static void main(String[] args) {
@@ -34,9 +29,9 @@ public class StudentDemo {
                     System.out.println("Enter "+(i+1)+ " Mark :");
                     marks[i] = scanner.nextInt();
                 }
-                if(sms.addStudent(new Student(rollNum++,name,address,subject,marks))) {
+                if(sms.addStudent(new Student(rollNum,name,address,subject,marks))) {
                     System.out.println("Student Account created :");
-                    System.out.println("Your RollNo :"+(rollNum));
+                    System.out.println("Your RollNo :"+(++rollNum));
                     System.out.println("************* Thank You ***************");
                     System.out.println();
 
@@ -47,9 +42,9 @@ public class StudentDemo {
             {
                 try {
                     System.out.println("Enter your RollNo");
-                    long rollNo = scanner.nextLong();
-                    if(sms.deleteStudent(rollNo))
-                        System.out.println("Student has been deleted successfully:");
+                    long rollNo1 = scanner.nextLong()-1;
+                    if(sms.deleteStudent(rollNo1))
+                        System.out.println("Student deleted successfully:");
 
                 }catch (StudentDoesntExist e) {
                     System.out.println(e);
@@ -78,11 +73,11 @@ public class StudentDemo {
                 }
 
                 try {
-                    if (sms.updateStudent(rn, new Student(rn, name, address, subject, marks)))
-                        System.out.println("Student has been updated :");
+                    if (sms.updateStudent(rn, new Student(rn-1, name, address, subject, marks)))
+                        System.out.println("Student updated successfully:");
 
                 } catch (StudentDoesntExist e) {
-                    throw new RuntimeException(e);
+                    System.out.println(e);
                 }
             }
             else if(n==5)

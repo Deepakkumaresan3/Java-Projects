@@ -59,7 +59,7 @@ public class Student {
     @Override
     public String toString() {
         return
-                "RollNo = " + rollNo +"\t"+
+                "RollNo = " + (rollNo+1)+"\t"+
                 "Name = " + name + "\t" +
                 "Address = " + address + "\t" +
                 "Subject = " + subject + "\t" +

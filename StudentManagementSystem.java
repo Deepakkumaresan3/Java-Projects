@@ -1,11 +1,7 @@
-import src.StudentDoesntExist;
-import src.StudentDoesntExit;
-
 import java.util.ArrayList;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class StudentManagementSystem implements StudentMgmtInterface {
   int i;
@@ -25,7 +21,7 @@ public class StudentManagementSystem implements StudentMgmtInterface {
     @Override
     public boolean deleteStudent(long rollNo) throws  StudentDoesntExist {
        for(Student s : studentArray)
-           if(s.getRollNo()==rollNo) {
+           if(s.getRollNo()==rollNo-1) {
                studentArray.remove(s);
                return true;
            }
